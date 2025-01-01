@@ -1,0 +1,19 @@
+.choices {
+    display: flex;
+    justify-content: center;
+
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #f1f1f1;
+    border: 5px solid #11d3c9;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.choices img {
+    width: 100px;
+    height: 100px;
+}

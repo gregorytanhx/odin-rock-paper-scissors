@@ -62,6 +62,7 @@ function playGame() {
         }
         displayScore.textContent = "Human: " + humanScore + " Computer: " + computerScore;
         
+        //TODO: add popup to play again
         if (humanScore == 5 || computerScore == 5) {
             if (humanScore == 5) {
                 displayWinner.textContent = "You won!";
