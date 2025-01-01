@@ -9,23 +9,18 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    const rockBtn = document.querySelector('#rock');
-    const paperBtn = document.querySelector("#paper");
-    const scissorsBtn = document.querySelector("#scissors");
-
-    rockBtn.addEventListener("click", () => {
-        alert("rock");
-    });
-
-}
-
-
-
 
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+        // add event listener for all
+        button.addEventListener("click", () => {
+            playRound(button.id, computerChoice);
+        });
+    });
 
     function playRound(humanChoice, computerChoice) {
         console.log(humanChoice)
@@ -69,3 +64,4 @@ function playGame() {
 }
 
 playGame();
+  
