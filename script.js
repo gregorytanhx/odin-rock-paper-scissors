@@ -37,14 +37,16 @@ function playGame() {
     buttons.forEach((button) => {
         // add event listener for all
         button.addEventListener("click", () => {
-            playRound(button.id, computerChoice);
+            playRound(button.id, getComputerChoice());
         });
     });
 
-    const displayResult = document.querySelector(".result");
+    
 
 
     function playRound(humanChoice, computerChoice) {
+        const displayResult = document.querySelector(".results");
+        const displayScore = document.querySelector(".score");
         let result = gameResult(humanChoice, computerChoice);
 
         if (result[1] == 0) {
@@ -56,21 +58,10 @@ function playGame() {
         } else {
             displayResult.textContent = result[0];
         }
-        
-       
+        displayScore.textContent = "Human: " + humanScore + " Computer: " + computerScore;
     }
 
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-    }
-    console.log("Human score: " + humanScore + " Computer score: " + computerScore);
-    if (humanScore > computerScore) {
-        console.log("You win!");
-    } else if (humanScore == computerScore) {
-        console.log("Draw!");
-    } else {
-        console.log("You lose!");
-    }
+
 }
 
 playGame();
