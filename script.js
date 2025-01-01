@@ -44,7 +44,7 @@ function playGame() {
         if (id == 'rock') {
             return "<img src='assets/stone.png'/>";
         } else if (id == 'paper') {
-            return "<img src='assets/toilet-roll.png'/>";
+            return "<img src='assets/tissue-roll.png'/>";
         } else {
             return "<img src='assets/scissors.png'/>";
         }
@@ -59,17 +59,9 @@ function playGame() {
         // insert image of move played
         humanMove = document.querySelector('.human-container .move');
         humanMove.innerHTML = getImage(humanChoice);
-        humanDiv.parentNode.insertBefore(
-            humanMove.firstChild,
-            humanDiv.nextSibling
-        );
 
         computerMove = document.querySelector('.computer-container .move');
         computerMove.innerHTML = getImage(computerChoice);
-        computerDiv.parentNode.insertBefore(
-            humanMove.firstChild,
-            computerDiv.nextSibling
-        );
 
         let result = gameResult(humanChoice, computerChoice);
 
@@ -88,12 +80,24 @@ function playGame() {
         //TODO: add popup to play again
         if (humanScore == 5 || computerScore == 5) {
             if (humanScore == 5) {
-                displayWinner.textContent = 'You won!';
+                Swal.fire({
+                    title:'Result', 
+                    text: 'You won!',
+                    confirmButtonText: 'Play again',
+                });
+
             } else {
-                displayWinner.textContent = 'Computer won!';
+                Swal.fire({
+                    title: 'Result',
+                    text: 'You lost!',
+                    confirmButtonText: 'Play again',
+                });
             }
             humanScore = 0;
             computerScore = 0;
+            humanScoreDisplay.textContent = 'Human: ' + humanScore;
+            computerScoreDisplay.textContent =
+                ' Computer: ' + computerScore;
         } else {
             displayWinner.textContent = '';
         }
