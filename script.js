@@ -10,11 +10,14 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let choice = 'none';
-    while (choice != 'rock' && choice != 'paper' && choice != 'scissors') {
-        choice = prompt('Enter rock, paper or scissors: ');
-    }
-    return choice;
+    const rockBtn = document.querySelector('#rock');
+    const paperBtn = document.querySelector("#paper");
+    const scissorsBtn = document.querySelector("#scissors");
+
+    rockBtn.addEventListener("click", () => {
+        alert("rock");
+    });
+
 }
 
 
