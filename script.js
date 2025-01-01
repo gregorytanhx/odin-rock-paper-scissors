@@ -46,7 +46,8 @@ function playGame() {
 
     function playRound(humanChoice, computerChoice) {
         const displayResult = document.querySelector(".results");
-        const displayScore = document.querySelector(".score");
+        const humanScoreDisplay = document.querySelector(".human .score");
+        const computerScoreDisplay = document.querySelector(".computer .score");
         const displayWinner = document.querySelector(".winner");
 
         let result = gameResult(humanChoice, computerChoice);
@@ -60,7 +61,8 @@ function playGame() {
         } else {
             displayResult.textContent = result[0];
         }
-        displayScore.textContent = "Human: " + humanScore + " Computer: " + computerScore;
+        humanScoreDisplay.textContent = "Human: " + humanScore;
+        computerScoreDisplay.textContent = " Computer: " + computerScore;
         
         //TODO: add popup to play again
         if (humanScore == 5 || computerScore == 5) {
