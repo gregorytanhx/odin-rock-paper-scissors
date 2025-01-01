@@ -47,6 +47,8 @@ function playGame() {
     function playRound(humanChoice, computerChoice) {
         const displayResult = document.querySelector(".results");
         const displayScore = document.querySelector(".score");
+        const displayWinner = document.querySelector(".winner");
+
         let result = gameResult(humanChoice, computerChoice);
 
         if (result[1] == 0) {
@@ -59,6 +61,18 @@ function playGame() {
             displayResult.textContent = result[0];
         }
         displayScore.textContent = "Human: " + humanScore + " Computer: " + computerScore;
+        
+        if (humanScore == 5 || computerScore == 5) {
+            if (humanScore == 5) {
+                displayWinner.textContent = "You won!";
+            } else {
+                displayWinner.textContent = "Computer won!";
+            }
+            humanScore = 0;
+            computerScore = 0;
+        } else {
+            displayWinner.textContent = "";
+        }
     }
 
 
