@@ -14,6 +14,7 @@ function gameResult(a, b) {
     let winner = 0;
     if (a == b) {
         result = "Draw" ;
+        winner = -1;
     } else if (a == 'rock' && b == 'scissors') {
         result = 'rock beats scissors!';
     } else if (a == 'paper' && b == 'rock') {   
@@ -40,12 +41,22 @@ function playGame() {
         });
     });
 
-    const result = document.querySelector(".result");
+    const displayResult = document.querySelector(".result");
 
 
     function playRound(humanChoice, computerChoice) {
-        console.log(humanChoice)
-        humanChoice = humanChoice.trim().toLowerCase();
+        let result = gameResult(humanChoice, computerChoice);
+
+        if (result[1] == 0) {
+            displayResult.textContent = "You win! " + result[0];
+            humanScore++;
+        } else if (result[1] == 1) {
+            displayResult.textContent = "You lose! " + result[0];
+            computerScore++;
+        } else {
+            displayResult.textContent = result[0];
+        }
+        
        
     }
 
