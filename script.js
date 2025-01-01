@@ -12,7 +12,7 @@ function getComputerChoice() {
 function getHumanChoice() {
     let choice = 'none';
     while (choice != 'rock' && choice != 'paper' && choice != 'scissors') {
-        choice = prompt('Enter rock, paper or scissors: ').toLowerCase();
+        choice = prompt('Enter rock, paper or scissors: ');
     }
     return choice;
 }
@@ -21,8 +21,12 @@ function getHumanChoice() {
 
 
 function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
 
     function playRound(humanChoice, computerChoice) {
+        console.log(humanChoice)
+        humanChoice = humanChoice.trim().toLowerCase();
         if (humanChoice == computerChoice) {
             console.log("draw");
         } else if (humanChoice == 'rock' && computerChoice == 'scissors') {
@@ -43,17 +47,21 @@ function playGame() {
         } else if (humanChoice == 'scissors' && computerChoice == 'rock') { 
             console.log("You lose! Rock beats scissors.");
             computerScore++;
+        } else {
+            console.log("Invalid input. Please enter rock, paper or scissors.");
         }
     }
 
-    let humanScore = 0;
-    let computerScore = 0;
-
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-
     for (let i = 0; i < 5; i++) {
-        playRound(humanSelection, computerSelection);
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+    console.log("Human score: " + humanScore + " Computer score: " + computerScore);
+    if (humanScore > computerScore) {
+        console.log("You win!");
+    } else if (humanScore == computerScore) {
+        console.log("Draw!");
+    } else {
+        console.log("You lose!");
     }
 }
 
