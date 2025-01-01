@@ -9,6 +9,24 @@ function getComputerChoice() {
     }
 }
 
+function gameResult(a, b) {
+    let result = "";
+    let winner = 0;
+    if (a == b) {
+        result = "Draw" ;
+    } else if (a == 'rock' && b == 'scissors') {
+        result = 'rock beats scissors!';
+    } else if (a == 'paper' && b == 'rock') {   
+        result = 'paper beats rock!';
+    }  else if (a == 'scissors' && b == 'paper') {
+        result = 'scissors beats paper!';
+    } else {
+        return new Array(gameResult(b, a)[0], 1);
+    }
+
+    return [result, winner];
+
+}
 
 function playGame() {
     let humanScore = 0;
@@ -22,32 +40,13 @@ function playGame() {
         });
     });
 
+    const result = document.querySelector(".result");
+
+
     function playRound(humanChoice, computerChoice) {
         console.log(humanChoice)
         humanChoice = humanChoice.trim().toLowerCase();
-        if (humanChoice == computerChoice) {
-            console.log("draw");
-        } else if (humanChoice == 'rock' && computerChoice == 'scissors') {
-            console.log("You win! Rock beats scissors.");
-            humanScore++;
-        } else if (humanChoice == 'paper' && computerChoice == 'rock') {
-            console.log("You win! Paper beats rock.");
-            humanScore++;
-        } else if (humanChoice == 'scissors' && computerChoice == 'paper') {
-            console.log("You win! Scissors beats paper.");
-            humanScore++;
-        } else if (humanChoice == 'rock' && computerChoice == 'paper') {
-            console.log("You lose! Paper beats rock.");
-            computerScore++;
-        } else if (humanChoice == 'paper' && computerChoice == 'scissors') {
-            console.log("You lose! Scissors beats paper.");
-            computerScore++;
-        } else if (humanChoice == 'scissors' && computerChoice == 'rock') { 
-            console.log("You lose! Rock beats scissors.");
-            computerScore++;
-        } else {
-            console.log("Invalid input. Please enter rock, paper or scissors.");
-        }
+       
     }
 
     for (let i = 0; i < 5; i++) {
