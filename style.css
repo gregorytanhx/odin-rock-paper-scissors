@@ -37,6 +37,12 @@ body {
 }
 
 .results {
+    display: flex;
+    color:#373F51;
+    align-items: center;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 32px;
     min-height: 100px;
     
 }

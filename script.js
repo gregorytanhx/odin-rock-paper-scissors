@@ -16,11 +16,11 @@ function gameResult(a, b) {
         result = "Draw" ;
         winner = -1;
     } else if (a == 'rock' && b == 'scissors') {
-        result = 'rock beats scissors!';
+        result = 'Rock beats Scissors!';
     } else if (a == 'paper' && b == 'rock') {   
-        result = 'paper beats rock!';
+        result = 'Paper beats Rock!';
     }  else if (a == 'scissors' && b == 'paper') {
-        result = 'scissors beats paper!';
+        result = 'Scissors beats Paper!';
     } else {
         return new Array(gameResult(b, a)[0], 1);
     }
